@@ -1,13 +1,18 @@
 Raspberry PI - Plex Media Server - Docker Container
-=
+===
 
 This container allow you to configure a Plex Media Server easily thanks to Docker.
 
 Installation
 ---
 
+First, you have to mount your USB drive.
 ```
-sudo mount /dev/sda1 /mnt/usbdrive #Will mount your USB Drive where your media are
+sudo mount /dev/sda1 /mnt/usbdrive
+```
+
+This will start Plex using your mounted drive
+```
 docker run -d --restart=always --name plex -v /mnt/usbdrive:/media -p 32400:32400 --net=host jaymoulin/rpi-plex
 ```
 
