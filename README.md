@@ -27,7 +27,7 @@ Updating
 When Plex Media Server new version is released, you will be able to update your running version with this command:
  
 ```
-docker exec plex apt-get update && docker exec plex apt-get update apt-get upgrade -y
+docker exec plex apt-get update && docker exec plex apt-get upgrade -y
 ```
 
 Appendixes
