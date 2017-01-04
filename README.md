@@ -21,6 +21,15 @@ Configuration
 
 Go to http://__raspberry_ip__:32400 to configure it
 
+Updating
+---
+
+When Plex Media Server new version is released, you will be able to update your running version with this command:
+ 
+```
+docker exec plex apt-get update && docker exec plex apt-get update apt-get upgrade -y
+```
+
 Appendixes
 ---
 
