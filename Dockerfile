@@ -7,6 +7,4 @@ RUN apt-get update && apt-get install -t jessie plexmediaserver -y
 
 EXPOSE 32400
 
-ENV PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR /media
-
 CMD ["/usr/sbin/start_pms"]
