@@ -21,6 +21,14 @@ Configuration
 
 Go to http://__raspberry_ip__:32400 to configure it
 
+You can change the Plex Library directory by passing the changing the `PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR` environment variable when launching Plex 
+
+Example :
+
+```
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media -p 32400:32400 --net=host -e PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=/media jaymoulin/rpi-plex
+```
+
 Updating
 ---
 
