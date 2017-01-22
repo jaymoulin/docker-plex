@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -t jessie plexmediaserver -y
 
 EXPOSE 32400
 
-ENV INITSYSTEM "on"
+ADD daemon.sh /root/daemon.sh
+RUN chmod +x /root/daemon.sh
 
-CMD ["/usr/sbin/start_pms"]
+ENTRYPOINT ["/root/daemon.sh"]

@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
-trap quit SIGTERM
-
-quit() {
-    pkill -f start_pms
-    rm /root/Library/Application\ Support/Plex\ Media\ Server/plexmediaserver.pid
-    exit 0
-}
-
-/usr/sbin/start_pms
-quit
+#!/bin/sh
+trap 'kill -TERM $PID' TERM INT
+/usr/sbin/start_pms &
+PID=$!
+wait $PID
+wait $PID
+rm /root/Library/Application\ Support/Plex\ Media\ Server/plexmediaserver.pid
+EXIT_STATUS=$?
