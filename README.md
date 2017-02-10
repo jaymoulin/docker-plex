@@ -1,4 +1,4 @@
-Raspberry PI - Plex Media Server - Docker Container
+Raspberry PI - Plex Media Server - Docker Image
 ===
 
 This container allow you to configure a Plex Media Server easily thanks to Docker.
