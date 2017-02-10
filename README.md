@@ -1,7 +1,7 @@
 Raspberry PI - Plex Media Server - Docker Image
 ===
 
-This image allow you to configure a Plex Media Server easily thanks to Docker.
+This image allows you to configure a Plex Media Server easily thanks to Docker.
 
 Installation
 ---
