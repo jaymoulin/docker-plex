@@ -10,4 +10,7 @@ EXPOSE 32400
 VOLUME /root/Library
 VOLUME /media
 
-CMD ["/usr/sbin/start_pms"]
+ADD daemon.sh /root/daemon.sh
+RUN chmod +x /root/daemon.sh
+
+ENTRYPOINT ["/root/daemon.sh"]
