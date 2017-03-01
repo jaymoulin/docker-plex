@@ -13,7 +13,7 @@ sudo mount /dev/sda1 /mnt/usbdrive
 
 This will start Plex using your mounted drive
 ```
-docker run -d --restart=always --name plex -v /mnt/usbdrive:/media -p 32400:32400 --net=host jaymoulin/rpi-plex
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host jaymoulin/rpi-plex
 ```
 
 Configuration
@@ -21,12 +21,12 @@ Configuration
 
 Go to http://__raspberry_ip__:32400 to configure it
 
-You can change the Plex Library directory by plugin your local folder to `/root` folder 
+You can change the Plex Library directory by plugin your local folder to `/root/Library` folder 
 
 Example :
 
 ```
-docker run -d --restart=always --name plex -v /mnt/usbdrive:/media -p 32400:32400 --net=host -v /mnt/usbdrive:/root jaymoulin/rpi-plex
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/rpi-plex
 ```
 
 Updating
