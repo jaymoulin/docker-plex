@@ -1,5 +1,10 @@
+![logo](logo.png)
+
 Raspberry PI - Plex Media Server - Docker Image
 ===
+
+[![latest release](https://img.shields.io/github/release/jaymoulin/docker-rpi-plex.svg "latest release")](http://github.com/jaymoulin/docker-rpi-plex/releases)
+
 
 This image allows you to configure a Plex Media Server easily thanks to Docker.
 
