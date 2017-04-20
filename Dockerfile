@@ -1,10 +1,16 @@
-FROM sdhibit/rpi-raspbian
+FROM ctarwater/armhf-alpine-rpi-glibc
 
-RUN apt-get update && apt-get install wget apt-transport-https -y --force-yes && \
- 	wget -O - https://dev2day.de/pms/dev2day-pms.gpg.key | apt-key add - && \
-	echo "deb https://dev2day.de/pms/ jessie main" > /etc/apt/sources.list.d/pms.list && \
-	apt-get update && apt-get install -t jessie plexmediaserver -y && \
-	apt-get autoremove && apt-get clean
+ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.5.5.3634-995f1dead/PlexMediaServer-1.5.5.3634-995f1dead-arm7.spk'
+
+RUN apk add curl && \
+    curl --progress-bar ${PMS_URL} -o /root/synology.tgz && \
+    curl https://raw.githubusercontent.com/uglymagoo/plexmediaserver-installer/master/usr/sbin/start_pms -o /usr/sbin/start_pms && \
+    chmod +x /usr/sbin/start_pms && \
+    mkdir /usr/lib/plexmediaserver/; \
+    tar -xOf /root/synology.tgz package.tgz | tar -xzf - -C /usr/lib/plexmediaserver/; \
+    rm -r /usr/lib/plexmediaserver/dsm_config && \
+    rm /root/synology.tgz && \
+    apk del curl
 
 EXPOSE 32400
 
