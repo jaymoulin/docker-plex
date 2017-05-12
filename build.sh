@@ -5,4 +5,8 @@ export PMS_VERSION=`python3 -c "import re; print(re.search('(?<=plex-media-serve
 echo "Latest URL : $PMS_URL"
 echo "Version : $PMS_VERSION"
 DIR="$(cd $( dirname $0) && pwd)"
-docker build --build-arg PMS_URL=$PMS_URL -t jaymoulin/rpi-plex $DIR && docker tag jaymoulin/rpi-plex jaymoulin/rpi-plex:$PMS_VERSION
+if [ `docker images jaymoulin/rpi-plex:$PMS_VERSION | wc -l` -le 1 ]; then 
+    docker build --build-arg PMS_URL=$PMS_URL -t jaymoulin/rpi-plex:$PMS_VERSION $DIR && docker tag jaymoulin/rpi-plex:$PMS_VERSION jaymoulin/rpi-plex
+else
+    echo "Image already built!"
+fi
