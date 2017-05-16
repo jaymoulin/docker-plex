@@ -9,4 +9,5 @@ if [ `docker images jaymoulin/rpi-plex:$PMS_VERSION | wc -l` -le 1 ]; then
     docker build --build-arg PMS_URL=$PMS_URL -t jaymoulin/rpi-plex:$PMS_VERSION $DIR && docker tag jaymoulin/rpi-plex:$PMS_VERSION jaymoulin/rpi-plex
 else
     echo "Image already built!"
+    exit 1
 fi
