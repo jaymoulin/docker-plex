@@ -1,8 +1,8 @@
 FROM ctarwater/armhf-alpine-rpi-glibc
 
-ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.5.5.3634-995f1dead/PlexMediaServer-1.5.5.3634-995f1dead-arm7.spk'
+ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.5.7.4016-25d94bad9/PlexMediaServer-1.5.7.4016-25d94bad9-arm7.spk'
 
-RUN apk add curl && \
+RUN apk add --no-cache curl && \
     curl --progress-bar ${PMS_URL} -o /root/synology.tgz && \
     curl https://raw.githubusercontent.com/uglymagoo/plexmediaserver-installer/master/usr/sbin/start_pms -o /usr/sbin/start_pms && \
     chmod +x /usr/sbin/start_pms && \
