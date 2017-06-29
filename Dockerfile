@@ -1,6 +1,6 @@
 FROM ctarwater/armhf-alpine-rpi-glibc
 
-ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.5.7.4016-25d94bad9/PlexMediaServer-1.5.7.4016-25d94bad9-arm7.spk'
+ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.7.5.4035-313f93718/PlexMediaServer-1.7.5.4035-313f93718-arm7.spk'
 
 RUN apk add --no-cache curl && \
     curl --progress-bar ${PMS_URL} -o /root/synology.tgz && \
