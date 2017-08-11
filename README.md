@@ -54,5 +54,7 @@ If you don't have Docker installed yet, you can do it easily in one line using t
 curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2f99e45f3/raw/054ba73080c49a0fcdbc6932e27887a31c7abce2/ARM%2520(Raspberry%2520PI)%2520Docker%2520Install" | sudo sh && sudo usermod -aG docker $USER
 ```
 
+### Unkonwn file formats / "This server is not powerful enough to convert video"
 
+Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI powerness. You can convert them to make them compatible by usign my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
 
