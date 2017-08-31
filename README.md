@@ -4,6 +4,7 @@ Raspberry PI - Plex Media Server - Docker Image
 ===
 
 [![latest release](https://img.shields.io/github/release/jaymoulin/docker-rpi-plex.svg "latest release")](http://github.com/jaymoulin/docker-rpi-plex/releases)
+[![Follow on twitter](https://img.shields.io/twitter/follow/DockerRpiPlex.svg?style=social&label=Follow "Follow on twitter")](https://twitter.com/DockerRpiPlex)
 
 
 This image allows you to configure a Plex Media Server easily thanks to Docker.
@@ -57,4 +58,8 @@ curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2
 ### Unkonwn file formats / "This server is not powerful enough to convert video"
 
 Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI powerness. You can convert them to make them compatible by usign my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
+
+### New versions
+
+Follow [@DockerRpiPlex](https://twitter.com/DockerRpiPlex) on Twitter to be alerted of updates!
 
