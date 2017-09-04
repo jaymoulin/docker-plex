@@ -35,15 +35,6 @@ Example :
 docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/rpi-plex
 ```
 
-Updating
----
-
-When Plex Media Server new version is released, you will be able to update your running version with this command:
- 
-```
-docker exec plex apt-get update && docker exec plex apt-get upgrade -y
-```
-
 Appendixes
 ---
 
@@ -57,7 +48,7 @@ curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2
 
 ### Unkonwn file formats / "This server is not powerful enough to convert video"
 
-Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI powerness. You can convert them to make them compatible by usign my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
+Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI lack of power. You can convert them to make them compatible by using my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
 
 ### New versions
 
