@@ -1,6 +1,6 @@
 FROM jaymoulin/rpi-python:alpine as builder
 
-ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.8.4.4249-3497d6779/PlexMediaServer-1.8.4.4249-3497d6779-arm7.spk'
+ARG PMS_URL=''
 ARG LATEST=1
 
 RUN apk add --update --no-cache curl --virtual .build-deps && \
