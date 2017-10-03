@@ -1,5 +1,7 @@
 FROM jaymoulin/rpi-python:alpine as builder
 
+MAINTAINER Jay MOULIN <jaymoulin@gmail.com>
+
 ARG PMS_URL=''
 ARG LATEST=1
 
