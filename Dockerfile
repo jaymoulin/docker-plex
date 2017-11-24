@@ -1,4 +1,4 @@
-FROM jaymoulin/rpi-python:alpine as builder
+FROM python:alpine3.6 as builder
 
 MAINTAINER Jay MOULIN <jaymoulin@gmail.com>
 
