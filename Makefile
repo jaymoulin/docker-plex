@@ -1,7 +1,7 @@
 VERSION ?= 0.3.0
 CACHE ?= --no-cache=1
 FULLVERSION ?= ${VERSION}
-archs = amd64 arm32v6 arm64v8 i386
+archs ?= amd64 arm32v6 arm64v8 i386
 
 .PHONY: all build publish latest
 all: build publish latest
@@ -17,12 +17,17 @@ build:
 		else \
 			cat Dockerfile.arm >> Dockerfile; \
 			cat Dockerfile.common >> Dockerfile; \
-			docker build -t jaymoulin/plex:${VERSION}-$(arch) ${CACHE} .;\
+			docker build -t jaymoulin/rpi-plex:${VERSION}-$(arch) ${CACHE} .;\
 		fi; \
 	)
 publish:
 	docker push jaymoulin/plex
+	docker push jaymoulin/rpi-plex
 	cat manifest.yml | sed "s/\$$VERSION/${VERSION}/g" > manifest.yaml
+	cat manifest.yaml | sed "s/\$$FULLVERSION/${FULLVERSION}/g" > manifest2.yaml
+	mv manifest2.yaml manifest.yaml
+	manifest-tool push from-spec manifest.yaml
+	cat manifest.rpi.yml | sed "s/\$$VERSION/${VERSION}/g" > manifest.yaml
 	cat manifest.yaml | sed "s/\$$FULLVERSION/${FULLVERSION}/g" > manifest2.yaml
 	mv manifest2.yaml manifest.yaml
 	manifest-tool push from-spec manifest.yaml
