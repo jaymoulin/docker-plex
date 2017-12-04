@@ -1,0 +1,24 @@
+image: jaymoulin/plex:$FULLVERSION
+manifests:
+  -
+    image: jaymoulin/plex:$VERSION-arm32v6
+    platform:
+      architecture: arm
+      variant: v6
+      os: linux
+  -
+    image: jaymoulin/plex:$VERSION-arm64v8
+    platform:
+      architecture: arm
+      variant: v8
+      os: linux
+  -
+    image: jaymoulin/plex:$VERSION-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: jaymoulin/plex:$VERSION-i386
+    platform:
+      architecture: 386
+      os: linux

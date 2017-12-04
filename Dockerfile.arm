@@ -1,0 +1,3 @@
+FROM ctarwater/armhf-alpine-rpi-glibc
+
+COPY ./qemu-arm-static /usr/bin/

@@ -1,0 +1,11 @@
+LABEL maintainer="Jay MOULIN <jaymoulin@gmail.com> <https://twitter.com/MoulinJay>"
+
+EXPOSE 32400
+
+VOLUME /root/Library
+VOLUME /media
+
+COPY --from=builder /usr/sbin/start_pms /usr/sbin/start_pms
+COPY --from=builder /usr/lib/plexmediaserver/ /usr/lib/plexmediaserver/
+COPY daemon.sh /root/daemon.sh
+CMD ["/root/daemon.sh"]
