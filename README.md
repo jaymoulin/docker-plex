@@ -1,12 +1,12 @@
 ![logo](logo.png)
 
-Raspberry PI - Plex Media Server - Docker Image
+Plex Media Server - Docker Image (Multiarch)
 ===
 
-[![latest release](https://img.shields.io/github/release/jaymoulin/docker-rpi-plex.svg "latest release")](http://github.com/jaymoulin/docker-rpi-plex/releases)
+[![latest release](https://img.shields.io/github/release/jaymoulin/docker-plex.svg "latest release")](http://github.com/jaymoulin/docker-plex/releases)
 [![Follow on twitter](https://img.shields.io/twitter/follow/DockerRpiPlex.svg?style=social&label=Follow "Follow on twitter")](https://twitter.com/DockerRpiPlex)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jaymoulin/rpi-plex.svg)](https://hub.docker.com/r/jaymoulin/rpi-plex/)
-[![Docker stars](https://img.shields.io/docker/stars/jaymoulin/rpi-plex.svg)](https://hub.docker.com/r/jaymoulin/rpi-plex/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
+[![Docker stars](https://img.shields.io/docker/stars/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
 [![Bitcoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/btc.png "Bitcoin donation")](https://m.freewallet.org/id/374ad82e/btc)
 [![Litecoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ltc.png "Litecoin donation")](https://m.freewallet.org/id/374ad82e/ltc)
 [![PayPal donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ppl.png "PayPal donation")](https://www.paypal.me/jaymoulin)
@@ -23,26 +23,26 @@ sudo mount /dev/sda1 /mnt/usbdrive
 
 This will start Plex using your mounted drive
 ```
-docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host jaymoulin/rpi-plex
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host jaymoulin/plex
 ```
 
 Configuration
 ---
 
-Go to http://__raspberry_ip__:32400 to configure it
+Go to http://__your_machine_ip__:32400 to configure it
 
 You can change the Plex Library directory by plugin your local folder to `/root/Library` folder 
 
 Example :
 
 ```
-docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/rpi-plex
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/plex
 ```
 
 Appendixes
 ---
 
-### Install RaspberryPi Docker
+### Install Docker
 
 If you don't have Docker installed yet, you can do it easily in one line using this command
  
