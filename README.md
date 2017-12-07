@@ -4,7 +4,7 @@ Plex Media Server - Docker Image (Multiarch)
 ===
 
 [![latest release](https://img.shields.io/github/release/jaymoulin/docker-plex.svg "latest release")](http://github.com/jaymoulin/docker-plex/releases)
-[![Follow on twitter](https://img.shields.io/twitter/follow/DockerRpiPlex.svg?style=social&label=Follow "Follow on twitter")](https://twitter.com/DockerRpiPlex)
+[![Follow on twitter](https://img.shields.io/twitter/follow/DockerPlex.svg?style=social&label=Follow "Follow on twitter")](https://twitter.com/DockerPlex)
 [![Docker Pulls](https://img.shields.io/docker/pulls/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
 [![Docker stars](https://img.shields.io/docker/stars/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
 [![Bitcoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/btc.png "Bitcoin donation")](https://m.freewallet.org/id/374ad82e/btc)
@@ -56,5 +56,5 @@ Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, e
 
 ### New versions
 
-Follow [@DockerRpiPlex](https://twitter.com/DockerRpiPlex) on Twitter to be alerted of updates!
+Follow [@DockerPlex](https://twitter.com/DockerPlex) on Twitter to be alerted of updates!
 
