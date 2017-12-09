@@ -17,3 +17,8 @@ manifests:
     platform:
       architecture: amd64
       os: linux
+  -
+    image: jaymoulin/rpi-plex:$VERSION-aarch64
+    platform:
+      architecture: arm64
+      os: linux
