@@ -7,11 +7,13 @@ archs ?= amd64 arm32v6 arm64v8 aarch64
 all: build publish latest
 qemu-aarch64-static:
 	cp /usr/bin/qemu-aarch64-static .
-build: qemu-aarch64-static
+qemu-arm-static:
+	cp /usr/bin/qemu-arm-static .
+build: qemu-aarch64-static qemu-arm-static
 	$(foreach arch,$(archs), \
 		a=$$(echo $(arch) | awk -F"arm" '{print $$2}'); \
-		if [ $(arch) = aarch64 ]; then a=arn; else a=; fi; \
-		cat Dockerfile.builder > Dockerfile; \
+		if [ $(arch) = aarch64 ]; then a=arm; else a=; fi; \
+		cat Dockerfile.builder |  sed "s/FROM python:alpine/FROM ${arch}\/python:alpine/g" > Dockerfile; \
 		if [ "$$a" = "" ]; then \
 			cat Dockerfile.amd | sed "s/FROM alpine/FROM $(arch)\/alpine/g" >> Dockerfile; \
 			cat Dockerfile.common >> Dockerfile; \
