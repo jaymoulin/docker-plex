@@ -12,7 +12,7 @@ qemu-arm-static:
 build: qemu-aarch64-static qemu-arm-static
 	$(foreach arch,$(archs), \
 		a=$$(echo $(arch) | awk -F"arm" '{print $$2}'); \
-		if [ $(arch) = aarch64 ]; then a=arm; else a=; fi; \
+		if [ $(arch) = aarch64 ]; then a=arm; fi; \
 		cat Dockerfile.builder |  sed "s/FROM python:alpine/FROM ${arch}\/python:alpine/g" > Dockerfile; \
 		if [ "$$a" = "" ]; then \
 			cat Dockerfile.amd | sed "s/FROM alpine/FROM $(arch)\/alpine/g" >> Dockerfile; \
