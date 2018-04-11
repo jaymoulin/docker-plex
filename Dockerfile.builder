@@ -1,5 +1,5 @@
 FROM python:alpine3.6 as builder
-ARG PMS_URL='https://downloads.plex.tv/plex-media-server/1.12.1.4885-1046ba85f/PlexMediaServer-1.12.1.4885-1046ba85f-arm7.spk'
+ARG PMS_URL=''
 ARG LATEST=1
 ARG ARM=1
 
