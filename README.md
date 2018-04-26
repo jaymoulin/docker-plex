@@ -29,7 +29,7 @@ docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host ja
 Configuration
 ---
 
-Go to http://__your_machine_ip__:32400 to configure it
+Go to http://__your_machine_ip__:32400/manage to configure it
 
 You can change the Plex Library directory by plugin your local folder to `/root/Library` folder 
 
