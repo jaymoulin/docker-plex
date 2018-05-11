@@ -1,12 +1,14 @@
 ![logo](logo.png)
 
-Plex Media Server - Docker Image (Multiarch)
+Plex Media Server - Docker Image (Multiarch + Raspberry Pi)
 ===
 
 [![latest release](https://img.shields.io/github/release/jaymoulin/docker-plex.svg "latest release")](http://github.com/jaymoulin/docker-plex/releases)
 [![Follow on twitter](https://img.shields.io/twitter/follow/DockerPlex.svg?style=social&label=Follow "Follow on twitter")](https://twitter.com/DockerPlex)
 [![Docker Pulls](https://img.shields.io/docker/pulls/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
 [![Docker stars](https://img.shields.io/docker/stars/jaymoulin/plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jaymoulin/rpi-plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
+[![Docker stars](https://img.shields.io/docker/stars/jaymoulin/rpi-plex.svg)](https://hub.docker.com/r/jaymoulin/plex/)
 [![Bitcoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/btc.png "Bitcoin donation")](https://m.freewallet.org/id/374ad82e/btc)
 [![Litecoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ltc.png "Litecoin donation")](https://m.freewallet.org/id/374ad82e/ltc)
 [![PayPal donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ppl.png "PayPal donation")](https://www.paypal.me/jaymoulin)
