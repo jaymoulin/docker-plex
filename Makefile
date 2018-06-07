@@ -1,15 +1,11 @@
-VERSION ?= 1.12.0
+VERSION ?= 1.13.0
 CACHE ?= --no-cache=1
 FULLVERSION ?= ${VERSION}
 archs ?= amd64 arm32v6 arm64v8 aarch64
 
 .PHONY: all build publish latest
 all: build publish latest
-qemu-aarch64-static:
-	cp /usr/bin/qemu-aarch64-static .
-qemu-arm-static:
-	cp /usr/bin/qemu-arm-static .
-build: qemu-aarch64-static qemu-arm-static
+build: 
 	$(foreach arch,$(archs), \
 		a=$$(echo $(arch) | awk -F"arm" '{print $$2}'); \
 		if [ $(arch) = aarch64 ]; then a=arm; fi; \
@@ -21,6 +17,7 @@ build: qemu-aarch64-static qemu-arm-static
 		else \
 			cat Dockerfile.arm >> Dockerfile; \
 			cat Dockerfile.common >> Dockerfile; \
+			docker run --rm --privileged multiarch/qemu-user-static:register --reset; \
 			docker build -t jaymoulin/rpi-plex:${VERSION}-$(arch) ${CACHE} .;\
 		fi; \
 	)
