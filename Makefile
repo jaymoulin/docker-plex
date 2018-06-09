@@ -1,4 +1,4 @@
-VERSION ?= 1.13.0
+VERSION ?= 1.13.2
 CACHE ?= --no-cache=1
 FULLVERSION ?= ${VERSION}
 archs ?= amd64 arm32v6 arm64v8 aarch64
@@ -32,5 +32,14 @@ publish:
 	cat manifest.yaml | sed "s/\$$FULLVERSION/${FULLVERSION}/g" > manifest2.yaml
 	mv manifest2.yaml manifest.yaml
 	manifest-tool push from-spec manifest.yaml
-latest: build
+latest:
 	FULLVERSION=latest VERSION=${VERSION} make publish
+.trc:
+	@cat .trc.template | sed "s/\$$TWITTER_CONSUMER_KEY/${TWITTER_CONSUMER_KEY}/g" > .trc
+	@cat .trc | sed "s/\$$TWITTER_CONSUMER_SECRET/${TWITTER_CONSUMER_SECRET}/g" > .trc2
+	@mv .trc2 .trc
+	@cat .trc | sed "s/\$$TWITTER_TOKEN/${TWITTER_TOKEN}/g" > .trc2
+	@cat .trc2 | sed "s/\$$TWITTER_SECRET/${TWITTER_SECRET}/g" > .trc
+	@rm .trc2
+tweet: .trc
+	docker run -ti --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex"

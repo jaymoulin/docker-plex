@@ -8,14 +8,14 @@ before_install:
     - git clone https://github.com/estesp/manifest-tool && cd manifest-tool && sudo make && sudo make install && cd .. && rm -Rf manifest-tool
     - docker run --rm --privileged multiarch/qemu-user-static:register
     - sudo apt install -y qemu qemu-user-static qemu-user binfmt-support
+    - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_LOGIN" --password-stdin
 
 script:
-    - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_LOGIN" --password-stdin
     - make build
 
 deploy:
     provider: script
     script:
-        - make publish latest
+        - make publish latest tweet
     on:
         branch: master

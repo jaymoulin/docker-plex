@@ -1,0 +1,13 @@
+---
+configuration:
+  default_profile:
+  - DockerRpiPlex
+  - xZnMtYqsSMCxcHm0ifY7ljXgw
+profiles:
+  DockerRpiPlex:
+    xZnMtYqsSMCxcHm0ifY7ljXgw:
+      username: DockerRpiPlex
+      consumer_key: $TWITTER_CONSUMER_KEY
+      consumer_secret: $TWITTER_CONSUMER_SECRET
+      token: $TWITTER_TOKEN
+      secret: $TWITTER_SECRET
