@@ -9,5 +9,5 @@ VOLUME /media
 
 COPY --from=builder /usr/sbin/start_pms /usr/sbin/start_pms
 COPY --from=builder /usr/lib/plexmediaserver/ /usr/lib/plexmediaserver/
-COPY daemon.sh /root/daemon.sh
-CMD ["/root/daemon.sh"]
+COPY daemon.sh /usr/sbin/daemon-pms
+CMD ["daemon-pms"]

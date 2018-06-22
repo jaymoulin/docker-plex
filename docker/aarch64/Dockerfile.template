@@ -1,0 +1,3 @@
+FROM stephank/archlinux:aarch64-latest
+
+RUN apt update && apt intall glibc
