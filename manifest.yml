@@ -1,12 +1,6 @@
 image: jaymoulin/plex:$FULLVERSION
 manifests:
   -
-    image: jaymoulin/plex:$VERSION-arm32v6
-    platform:
-      architecture: arm
-      variant: v6
-      os: linux
-  -
     image: jaymoulin/plex:$VERSION-armhf
     platform:
       architecture: arm

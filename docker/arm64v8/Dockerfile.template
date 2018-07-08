@@ -1,5 +1,5 @@
 #inspired by https://github.com/chrisanthropic/docker-alpine-rpi-glibc
-FROM aarch64/alpine
+FROM arm64v8/alpine
 COPY qemu-aarch64-static /usr/bin/
 RUN apk add curl --no-cache --update --virtual .build-deps && \
     curl -Lo glibc-2.26-r1.apk https://raw.githubusercontent.com/athalonis/docker-alpine-rpi-glibc-builder/master/glibc-2.26-r1.apk && \

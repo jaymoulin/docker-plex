@@ -1,24 +1,20 @@
 VERSION ?= 1.14.1
 CACHE ?= --no-cache=1
 FULLVERSION ?= 1.14.1
-archs ?= amd64 armhf
+archs ?= amd64 armhf arm64v8 aarch64
+PMS_URL ?=
 
 .PHONY: all build publish latest
 all: build publish latest
-build: 
+qemu-aarch64-static:
+	cp /usr/bin/qemu-aarch64-static .
+build: qemu-aarch64-static
 	$(foreach arch,$(archs), \
-		a=$$(echo $(arch) | awk -F"arm" '{print $$2}'); \
 		cat Dockerfile.builder > Dockerfile; \
-		if [ "$$a" = "" ]; then \
-			cat docker/$(arch)/Dockerfile.template >> Dockerfile; \
-			cat Dockerfile.common >> Dockerfile; \
-			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg ARM=0 --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
-		else \
-			cat docker/$(arch)/Dockerfile.template >> Dockerfile; \
-			cat Dockerfile.common >> Dockerfile; \
-			docker run --rm --privileged multiarch/qemu-user-static:register --reset; \
-			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
-		fi; \
+		cat docker/$(arch)/Dockerfile.template >> Dockerfile; \
+		cat Dockerfile.common >> Dockerfile; \
+		docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg PMS_URL=${PMS_URL} --build-arg ARCH=$(arch) --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
+		docker run --rm --privileged multiarch/qemu-user-static:register --reset; \
 	)
 publish:
 	docker push jaymoulin/plex
