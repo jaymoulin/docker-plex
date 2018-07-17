@@ -1,6 +1,6 @@
-VERSION ?= 1.13.2
+VERSION ?= 1.13.4
 CACHE ?= --no-cache=1
-FULLVERSION ?= ${VERSION}
+FULLVERSION ?= 1.13.4
 archs ?= amd64 arm32v6 arm64v8 aarch64
 
 .PHONY: all build publish latest
