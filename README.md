@@ -52,11 +52,27 @@ If you don't have Docker installed yet, you can do it easily in one line using t
 curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2f99e45f3/raw/0e650b38fde684c4ac534b254099d6d5543375f1/ARM%2520(Raspberry%2520PI)%2520Docker%2520Install" | sudo sh && sudo usermod -aG docker $USER
 ```
 
-### Unkonwn file formats / "This server is not powerful enough to convert video"
+### Known issues
+
+#### libstdc++.so.6: cannot open shared object file
+
+You will probably notice that kind of error log:
+```
+/usr/lib/plexmediaserver/Plex Tuner Service: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
+/usr/lib/plexmediaserver/Plex Tuner Service: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
+/usr/lib/plexmediaserver/Plex Tuner Service: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
+```
+
+This is a known issue for _Plex Tune Service ONLY_. 
+This service is not required by Plex Media Server to work properly.
+I have no intention to fix this log.
+If you REALLY NEED Plex Tuner Service to work, please open an issue, or (better desired option), make a Pull Request to implement this feature.
+
+#### Unknown file formats / "This server is not powerful enough to convert video"
 
 Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI lack of power. You can convert them to make them compatible by using my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
 
-### New versions
+#### How do I update?
 
 Follow [@DockerPlex](https://twitter.com/DockerPlex) on Twitter to be alerted of updates!
 
