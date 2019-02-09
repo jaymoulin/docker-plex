@@ -1,13 +1,19 @@
 image: jaymoulin/plex:$FULLVERSION
 manifests:
   -
-    image: jaymoulin/rpi-plex:$VERSION-arm32v6
+    image: jaymoulin/plex:$VERSION-arm32v6
     platform:
       architecture: arm
       variant: v6
       os: linux
   -
-    image: jaymoulin/rpi-plex:$VERSION-arm64v8
+    image: jaymoulin/plex:$VERSION-armhf
+    platform:
+      architecture: arm
+      variant: v7
+      os: linux
+  -
+    image: jaymoulin/plex:$VERSION-arm64v8
     platform:
       architecture: arm
       variant: v8
@@ -18,7 +24,7 @@ manifests:
       architecture: amd64
       os: linux
   -
-    image: jaymoulin/rpi-plex:$VERSION-aarch64
+    image: jaymoulin/plex:$VERSION-aarch64
     platform:
       architecture: arm64
       os: linux
