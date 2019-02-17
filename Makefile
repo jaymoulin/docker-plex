@@ -12,12 +12,12 @@ build:
 		if [ "$$a" = "" ]; then \
 			cat Dockerfile.amd | sed "s/FROM alpine/FROM $(arch)\/alpine/g" >> Dockerfile; \
 			cat Dockerfile.common >> Dockerfile; \
-			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg ARM=0 --build-arg VERSION=${VERSION} ${CACHE} .;\
+			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg ARM=0 --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
 		else \
 			cat Dockerfile.arm >> Dockerfile; \
 			cat Dockerfile.common >> Dockerfile; \
 			docker run --rm --privileged multiarch/qemu-user-static:register --reset; \
-			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg VERSION=${VERSION} ${CACHE} .;\
+			docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
 		fi; \
 	)
 publish:
