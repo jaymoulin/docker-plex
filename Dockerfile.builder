@@ -5,13 +5,13 @@ ARG ARCH=
 RUN apk add --update --no-cache curl --virtual .build-deps && \
     if [[ -z "$PMS_URL" ]]; then \
         if [ "$ARCH" == "amd64" ]; then \
-            DL_INDEX=2; \
-        elif [ "$ARCH" == "arm32v6" ]; then \
-            DL_INDEX=0; \
+            DL_INDEX=1; \
+        elif [ "$ARCH" == "armhf" ]; then \
+            DL_INDEX=3; \
         else \
-            DL_INDEX=0; \
+            DL_INDEX=2; \
         fi; \
-        DL_URL=`curl -s 'https://plex.tv/api/downloads/1.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['nas']['Synology']['releases'][${DL_INDEX}]['url'])"`; \
+        DL_URL=`curl -s 'https://plex.tv/pms/downloads/5.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['nas']['Synology']['releases'][${DL_INDEX}]['url'])"`; \
     else \
         DL_URL="$PMS_URL"; \
     fi; \
