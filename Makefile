@@ -9,6 +9,7 @@ all: build publish latest
 qemu-aarch64-static:
 	cp /usr/bin/qemu-aarch64-static .
 build: qemu-aarch64-static
+	docker images | grep  "jaymoulin\/plex\s.*" | awk '{print $$1":"$$2}' | xargs docker rmi || true
 	$(foreach arch,$(archs), \
 		cat Dockerfile.builder > Dockerfile; \
 		cat docker/$(arch)/Dockerfile.template >> Dockerfile; \
