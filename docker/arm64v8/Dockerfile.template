@@ -7,4 +7,5 @@ RUN apk add curl --no-cache --update --virtual .build-deps && \
     curl -Lo glibc-i18n-2.26-r1.apk https://raw.githubusercontent.com/athalonis/docker-alpine-rpi-glibc-builder/master/glibc-i18n-2.26-r1.apk && \
     apk add --allow-untrusted *.apk && \
     rm *.apk && \
-    apk del curl --purge .build-deps
+    apk del curl --purge .build-deps && \
+    ln -s /usr/glibc-compat/lib/ld-2.22.so /usr/glibc-compat/lib/ld-linux.so.3
