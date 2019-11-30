@@ -26,7 +26,19 @@ First, you have to mount your USB drive.
 sudo mount /dev/sda1 /mnt/usbdrive
 ```
 
-This will start Plex using your mounted drive
+*Important Note*
+
+Don't forget to mount the Plex Library directory local folder to `/root/Library` folder.
+
+Example :
+
+```
+docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/plex
+
+```
+
+This will start Plex using your mounted drive in /media path in Plex.
+
 ```
 docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host jaymoulin/plex
 ```
@@ -36,13 +48,6 @@ Configuration
 
 Go to http://__your_machine_ip__:32400/manage to configure it
 
-You can change the Plex Library directory by plugin your local folder to `/root/Library` folder 
-
-Example :
-
-```
-docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v /mnt/usbdrive:/root/Library jaymoulin/plex
-```
 
 Appendixes
 ---
