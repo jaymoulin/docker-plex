@@ -1,6 +1,6 @@
-VERSION ?= 1.18.2.2058
+VERSION ?= 1.18.3.2156
 CACHE ?= --no-cache=1
-FULLVERSION ?= 1.18.2.2058
+FULLVERSION ?= 1.18.3.2156
 archs ?= amd64 armhf arm64v8 aarch64
 PMS_URL ?=
 
@@ -33,4 +33,4 @@ latest:
 	@cat .trc2 | sed "s/\$$TWITTER_SECRET/${TWITTER_SECRET}/g" > .trc
 	@rm .trc2
 tweet: .trc
-	docker run -ti --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex"
+	docker run --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex"
