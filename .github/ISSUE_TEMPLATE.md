@@ -1,4 +1,7 @@
 <!--
+DISCLAIMER: As-of 2021, this product does not have a free support team anymore.
+If you want this product to be maintained, please support on Patreon.
+
 If you are reporting a new issue, make sure that we do not have any duplicates
 already open. You can ensure this by searching the issue list for this
 repository. If there is a duplicate, please close your issue and add a comment
