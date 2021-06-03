@@ -6,6 +6,9 @@ EXPOSE 32400
 
 VOLUME /root/Library
 VOLUME /media
+#fixes crash on 1.23 (https://forums.plex.tv/t/terminating-with-uncaught-exception-of-type-std-clock-gettime-clock-monotonic-failed/718578/14)
+
+ENV SYSCALL_MAX_ENABLED=1
 
 COPY --from=builder /usr/sbin/start_pms /usr/sbin/start_pms
 COPY --from=builder /usr/lib/plexmediaserver/ /usr/lib/plexmediaserver/
