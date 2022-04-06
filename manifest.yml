@@ -12,7 +12,7 @@ manifests:
       architecture: amd64
       os: linux
   -
-    image: jaymoulin/plex:$VERSION-aarch64
+    image: jaymoulin/plex:$VERSION-arm64v8
     platform:
       architecture: arm64
       os: linux

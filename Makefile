@@ -1,7 +1,7 @@
 VERSION ?= 1.25.9.5721
 CACHE ?= --no-cache=1
 FULLVERSION ?= 1.25.9.5721
-archs ?= amd64 armhf arm64v8 aarch64
+archs ?= amd64 armhf arm64v8
 PMS_URL ?=
 
 .PHONY: all build publish latest
