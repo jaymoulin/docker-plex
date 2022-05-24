@@ -1,6 +1,6 @@
-VERSION ?= 1.26.1.5798
+VERSION ?= 1.26.2.5797
 CACHE ?= --no-cache=1
-FULLVERSION ?= 1.26.1.5798
+FULLVERSION ?= 1.26.2.5797
 archs ?= amd64 armhf arm64v8
 PMS_URL ?=
 
