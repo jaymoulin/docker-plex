@@ -1,4 +1,4 @@
-FROM python:alpine3.9 as builder
+FROM python:alpine as builder
 ARG PMS_URL=
 ARG ARCH=
 
