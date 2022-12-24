@@ -30,6 +30,7 @@ sudo mount /dev/sda1 /mnt/usbdrive
 *Important Note*
 
 Don't forget to mount the Plex Library directory local folder to `/root/Library` folder.
+Please note that this package is also hosted on Github Container Registry, just add `ghcr.io/` before the image name (`docker pull ghcr.io/jaymoulin/plex` instead of `jaymoulin/plex`)
 
 Example :
 

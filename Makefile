@@ -14,13 +14,17 @@ build: qemu-aarch64-static
 		cat Dockerfile.builder > Dockerfile; \
 		cat docker/$(arch)/Dockerfile.template >> Dockerfile; \
 		cat Dockerfile.common >> Dockerfile; \
-		docker build -t jaymoulin/plex:${VERSION}-$(arch) --build-arg PMS_URL=${PMS_URL} --build-arg ARCH=$(arch) --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
+		docker build -t jaymoulin/plex:${VERSION}-$(arch) -t ghcr.io/jaymoulin/plex:${VERSION}-$(arch) --build-arg PMS_URL=${PMS_URL} --build-arg ARCH=$(arch) --build-arg VERSION=${VERSION}-$(arch) ${CACHE} .;\
 		docker run --rm --privileged multiarch/qemu-user-static:register --reset; \
 	)
 publish:
 	docker push jaymoulin/plex -a
+	docker push ghcr.io/jaymoulin/plex -a
 	cat manifest.yml | sed "s/\$$VERSION/${VERSION}/g" > manifest.yaml
 	cat manifest.yaml | sed "s/\$$FULLVERSION/${FULLVERSION}/g" > manifest2.yaml
+	mv manifest2.yaml manifest.yaml
+	manifest-tool push from-spec manifest.yaml
+	cat manifest.yaml | sed "s/jaymoulin/ghcr.io\/jaymoulin/g" > manifest2.yaml
 	mv manifest2.yaml manifest.yaml
 	manifest-tool push from-spec manifest.yaml
 latest:
@@ -33,4 +37,4 @@ latest:
 	@cat .trc2 | sed "s/\$$TWITTER_SECRET/${TWITTER_SECRET}/g" > .trc
 	@rm .trc2
 tweet: .trc
-	docker run --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex. You can support me on https://patreon.com/jaymoulin | https://buymeacoff.ee/jaymoulin | https://paypal.me/jaymoulin"
+	docker run --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex or ghcr.io/jaymoulin/plex. Please support me on https://ko-fi.com/jaymoulin | https://buymeacoff.ee/jaymoulin | https://paypal.me/jaymoulin"
