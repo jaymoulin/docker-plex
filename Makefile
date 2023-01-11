@@ -37,4 +37,4 @@ latest:
 	@cat .trc2 | sed "s/\$$TWITTER_SECRET/${TWITTER_SECRET}/g" > .trc
 	@rm .trc2
 tweet: .trc
-	docker run --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex or ghcr.io/jaymoulin/plex. Please support me on https://ko-fi.com/jaymoulin | https://buymeacoff.ee/jaymoulin | https://paypal.me/jaymoulin"
+	docker run --rm -v ${PWD}/.trc:/root/.trc jaymoulin/twitter-cli update "Version ${VERSION} available of @plex @docker container for @Raspberry_Pi. Just pull jaymoulin/plex or ghcr.io/jaymoulin/plex. Please support me on https://ko-fi.com/jaymoulin | https://buymeacoff.ee/jaymoulin | https://paypal.me/jaymoulin" || true
