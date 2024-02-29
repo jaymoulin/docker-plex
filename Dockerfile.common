@@ -14,5 +14,7 @@ COPY --from=builder /usr/sbin/start_pms /usr/sbin/start_pms
 COPY --from=builder /usr/lib/plexmediaserver/ /usr/lib/plexmediaserver/
 COPY --from=builder /usr/sbin/DBRepair /usr/sbin/DBRepair
 COPY daemon.sh /usr/sbin/daemon-pms
-RUN mkdir /config && ln -s /root/Library /config/Library
+RUN mkdir -p /config && \
+    mkdir -p /root/Library && \
+    ln -s /root/Library /config/Library
 CMD ["daemon-pms"]
