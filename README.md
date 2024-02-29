@@ -39,7 +39,7 @@ docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host -v
 
 ```
 
-This will start Plex using your mounted drive in /media path in Plex.
+This will start Plex using your mounted drive in /media path in Plex (library volume not mounted will result in a container only library - this will be harder to fix).
 
 ```
 docker run -d --restart=always --name plex -v /mnt/usbdrive:/media --net=host jaymoulin/plex
@@ -62,6 +62,24 @@ If you don't have Docker installed yet, you can do it easily in one line using t
 curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2f99e45f3/raw/0e650b38fde684c4ac534b254099d6d5543375f1/ARM%2520(Raspberry%2520PI)%2520Docker%2520Install" | sudo sh && sudo usermod -aG docker $USER
 ```
 
+### Repairing Database
+
+As-of 1.1.0 (Plex 1.40.0) This image brings [ChuckPa/PlexDBRepair](https://github.com/ChuckPa/PlexDBRepair/) tool to help fixing errors on Plex databases.
+If some error occurs and database is corrupted, you would be able to check/repair using this tool.
+
+To use it, the plex service should be STOPPED. Then you can use the command `DBRepair` in the docker container with your Library volume mounted.
+
+#### Docker CLI example
+```shell
+docker run --rm -v /mnt/usbdrive:/media -v /mnt/usbdrive:/root/Library jaymoulin/plex DBRepair
+```
+
+#### Docker Compose Example
+```shell
+docker compose stop plex
+docker compose run plex DBRepair
+```
+
 ### Known issues
 
 #### libstdc++.so.6: cannot open shared object file
@@ -81,8 +99,3 @@ If you REALLY NEED Plex Tuner Service to work, please open an issue, or (better 
 #### Unknown file formats / "This server is not powerful enough to convert video"
 
 Plex for Raspberry PI cannot read some video file format like AVI, WMV or OGM, either due to codec or due to RPI lack of power. You can convert them to make them compatible by using my docker image `jaymoulin/rpi-plex-video-converter` : https://github.com/jaymoulin/docker-rpi-plex-video-converter
-
-#### How do I update?
-
-Follow [@DockerPlex](https://twitter.com/DockerPlex) on Twitter to be alerted of updates!
-

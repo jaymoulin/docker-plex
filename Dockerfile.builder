@@ -19,6 +19,8 @@ RUN apk add --update --no-cache curl --virtual .build-deps && \
     curl --progress-bar ${DL_URL} -o /root/synology.tgz && \
     curl https://raw.githubusercontent.com/uglymagoo/plexmediaserver-installer/master/usr/sbin/start_pms -o /usr/sbin/start_pms && \
     chmod +x /usr/sbin/start_pms && \
+    curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/master/DBRepair.sh -o /usr/sbin/DBRepair && \
+    chmod +x /usr/sbin/DBRepair && \
     mkdir /usr/lib/plexmediaserver/; \
     tar -xOf /root/synology.tgz package.tgz | tar -xzf - -C /usr/lib/plexmediaserver/; \
     rm -r /usr/lib/plexmediaserver/dsm_config && \
