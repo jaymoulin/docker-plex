@@ -79,6 +79,11 @@ docker compose stop plex
 docker compose run plex DBRepair
 ```
 
+### Can't match correctly a movie
+
+After trying "Fix association", if you still can't find the correct movie, you can seek for the correct movie on tmdb.org and enter its ID preceded by `tmdb-` in the title field.
+For example, my movie `Selfie` was not correctly associated. Found it on `https://www.themoviedb.org/movie/613319-selfie` so I seeked for `tmdb-613319` to fix it.
+
 ### Known issues
 
 #### libstdc++.so.6: cannot open shared object file
