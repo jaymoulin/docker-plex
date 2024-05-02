@@ -1,3 +1,12 @@
+> [!CAUTION]
+> As-of 2021, this product does not have a free support team anymore. If you want this product to be maintained, please support my work.
+ 
+> [!NOTE]
+> (This product is available under a free and permissive license, but needs financial support to sustain its continued improvements. In addition to maintenance and stability there are many  desirable features yet to be added.)
+ 
+> [!TIP]
+> THIS REPOSITORY IS AUTO-UPDATED BY A BOT EACH TIME A NEW PLEX SERVER VERSION IS RELEASED
+
 ![logo](logo.png)
 
 Plex Media Server - Docker Image (Multiarch + Raspberry Pi)
@@ -12,10 +21,6 @@ Plex Media Server - Docker Image (Multiarch + Raspberry Pi)
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png "Buy me a coffee")](https://www.buymeacoffee.com/jaymoulin)
 [![Buy me a coffee](https://ko-fi.com/img/githubbutton_sm.svg "Buy me a coffee")](https://www.ko-fi.com/jaymoulin)
 
-DISCLAIMER: As-of 2021, this product does not have a free support team anymore. If you want this product to be maintained, please support on Patreon.
-
-(This product is available under a free and permissive license, but needs financial support to sustain its continued improvements. In addition to maintenance and stability there are many desirable features yet to be added.)
-
 This image allows you to configure a Plex Media Server easily thanks to Docker.
 
 Installation
@@ -25,11 +30,11 @@ First, you have to mount your USB drive.
 ```
 sudo mount /dev/sda1 /mnt/usbdrive
 ```
-
-*Important Note*
-
-Don't forget to mount the Plex Library directory local folder to `/root/Library` folder.
-Please note that this package is also hosted on Github Container Registry, just add `ghcr.io/` before the image name (`docker pull ghcr.io/jaymoulin/plex` instead of `jaymoulin/plex`)
+ 
+> [!TIP]
+> *Important Note*
+>
+> Don't forget to mount the Plex Library directory local folder to `/root/Library` folder.
 
 Example :
 
@@ -63,8 +68,9 @@ curl -sSL "https://gist.githubusercontent.com/jaymoulin/e749a189511cd965f45919f2
 
 ### Repairing Database
 
-As-of 1.1.0 (Plex 1.40.0) This image brings [ChuckPa/PlexDBRepair](https://github.com/ChuckPa/PlexDBRepair/) tool to help fixing errors on Plex databases.
-If some error occurs and database is corrupted, you would be able to check/repair using this tool.
+> [!TIP]
+> As-of 1.1.0 (Plex 1.40.0) This image brings [ChuckPa/PlexDBRepair](https://github.com/ChuckPa/PlexDBRepair/) tool to help fixing errors on Plex databases.
+> If some error occurs and database is corrupted, you would be able to check/repair using this tool.
 
 To use it, the plex service should be STOPPED. Then you can use the command `DBRepair` in the docker container with your Library volume mounted.
 
