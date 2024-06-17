@@ -65,6 +65,7 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
 
 FROM woahbase/alpine-glibc:armhf as plexbase-arm
 
+ENTRYPOINT ["/bin/sh"]
 
 #inspired by https://github.com/chrisanthropic/docker-alpine-rpi-glibc
 FROM arm64v8/alpine as plexbase-arm64
@@ -98,4 +99,4 @@ COPY daemon.sh /usr/sbin/daemon-pms
 RUN mkdir -p /config && \
     mkdir -p /root/Library && \
     ln -s /root/Library /config/Library
-CMD ["daemon-pms"]
+CMD ["/usr/sbin/daemon-pms"]
