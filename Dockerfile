@@ -11,7 +11,7 @@ RUN apk add --update --no-cache curl --virtual .build-deps && \
         else \
             DL_INDEX=2; \
         fi; \
-        DL_URL=`curl -s 'https://plex.tv/pms/downloads/5.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['nas']['Synology']['releases'][${DL_INDEX}]['url'])"`; \
+        DL_URL=`curl -s 'https://plex.tv/pms/downloads/5.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['nas']['Synology (DSM 7)']['releases'][${DL_INDEX}]['url'])"`; \
     else \
         DL_URL="$PMS_URL"; \
     fi; \
@@ -24,7 +24,6 @@ RUN apk add --update --no-cache curl --virtual .build-deps && \
     chmod +x /usr/sbin/DBRepair && \
     mkdir /usr/lib/plexmediaserver/; \
     tar -xOf /root/synology.tgz package.tgz | tar -xzf - -C /usr/lib/plexmediaserver/; \
-    rm -r /usr/lib/plexmediaserver/dsm_config && \
     rm /root/synology.tgz && \
     apk del curl --purge .build-deps
 
