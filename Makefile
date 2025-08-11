@@ -1,4 +1,4 @@
-VERSION ?= 1.42.1.10054
+VERSION ?= 1.42.1.10060
 CACHE ?= --no-cache=1
 PMS_URL ?=
 
