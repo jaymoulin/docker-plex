@@ -1,0 +1,37 @@
+name: Feature Request
+description: File a feature request.
+title: "[Feature]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you are reporting a new request, make sure that we do not have any duplicates
+        already open. You can ensure this by searching the issue list for this
+        repository. If there is a duplicate, please close your request and add a comment
+        to the existing request instead.
+        
+        If you find this useful, please consider starring the repo and/or donating.
+        People showing interest attract more attention ;)
+  - type: textarea
+    id: details
+    attributes:
+      label: What do you need?
+      description: What do you expect to happen?
+      placeholder: This feature would be awesome
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this feature should be part of this program
+      description: Detail your motivation why this should be implemented in this app.
+      placeholder: It is really relevant because...
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you ensure the information provided are correctly fulfilled and respectful
+      options:
+        - label: I agree
+          required: true
